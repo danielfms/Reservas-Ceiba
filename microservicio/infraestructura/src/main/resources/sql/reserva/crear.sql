@@ -1,0 +1,1 @@
+insert into reserva (id_vuelo, tipo_identificacion,numero_identificacion,pasajeros, valor_total, activa, token, fecha_creacion) values (:id_vuelo, :tipo_identificacion, :numero_identificacion, :pasajeros, :valor_total, :activa, :token, :fecha_creacion)

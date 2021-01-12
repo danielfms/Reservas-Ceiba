@@ -1,0 +1,1 @@
+insert into avion (matricula, pasajeros) values (:matricula, :pasajeros)
