@@ -19,13 +19,7 @@ pipeline {
   //Aquí comienzan los “items” del Pipeline
   stages{
     stage('Checkout') {
-      steps{
-        echo "------------>Checkout<------------"
-      }
-    }
-    
-    stage('Compile & Unit Tests') {
-      steps{
+		steps{
       	// Conexión al repositorio
         echo "------------>Checkout<------------"
         checkout([
@@ -40,12 +34,20 @@ pipeline {
     				url:'https://github.com/danielfms/Reservas-Ceiba.git'
     			]]
     		])
+		}
+    }
+    
+    stage('Compile & Unit Tests') {
+		steps{
+        echo "------------>Unit Tests<------------"
+		sh 'gradle --b ./build.gradle test'
       }
     }
 
     stage('Build') {
       steps {
         echo "------------>Build<------------"
+		sh 'gradle --b ./build.gradle build -x test'
       }
     }
 
@@ -53,6 +55,7 @@ pipeline {
     stage('Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
+		sh 'gradle --b ./build.gradle test'
       }
     }
 
