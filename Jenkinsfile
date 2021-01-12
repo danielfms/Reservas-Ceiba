@@ -40,16 +40,14 @@ pipeline {
     stage('Compile & Unit Tests') {
 		steps{
         echo "------------>Unit Tests<------------"
-		sh 'chmod +x ./gradlew'
-        sh './gradlew build -x test'
+        sh './comun/gradlew build -x test'
       }
     }
 
     stage('Build') {
       steps {
         echo "------------>Build<------------"
-		sh 'chmod +x ./gradlew'
-        sh './gradlew build -x test'
+        sh './comun/gradlew build -x test'
       }
     }
 
@@ -57,9 +55,9 @@ pipeline {
     stage('Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
-		sh './gradlew clean'
-        sh './gradlew --b build.gradle test --scan'
-        sh './gradlew --b build.gradle jacocoTestReport'
+		sh './comun/gradlew clean'
+        sh './comun/gradlew --b build.gradle test --scan'
+        sh './comun/gradlew --b build.gradle jacocoTestReport'
       }
     }
 
