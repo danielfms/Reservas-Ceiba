@@ -41,7 +41,7 @@ pipeline {
 		steps{
         echo "------------>Unit Tests<------------"
 		sh 'chmod +x ./comun/gradlew'
-        sh './comun/gradlew build -x test'
+        sh './gradlew build -x test'
       }
     }
 
@@ -49,7 +49,7 @@ pipeline {
       steps {
         echo "------------>Build<------------"
 		sh 'chmod +x ./comun/gradlew'
-        sh './comun/gradlew build -x test'
+        sh './gradlew build -x test'
       }
     }
 
@@ -58,9 +58,9 @@ pipeline {
       steps{
         echo "------------>Unit Tests<------------"
 		sh 'chmod +x ./comun/gradlew'
-		sh './comun/gradlew clean'
-        sh './comun/gradlew --b build.gradle test --scan'
-        sh './comun/gradlew --b build.gradle jacocoTestReport'
+		sh './gradlew clean'
+        sh './gradlew --b build.gradle test --scan'
+        sh './gradlew --b build.gradle jacocoTestReport'
       }
     }
 
