@@ -40,16 +40,16 @@ pipeline {
     stage('Compile & Unit Tests') {
 		steps{
         echo "------------>Unit Tests<------------"
-		sh 'chmod +x ./comun/gradlew'
-        sh './gradlew build -x test'
+		sh 'chmod +x ./microservicio/gradlew'
+        sh './microservicio/gradlew build -x test'
       }
     }
 
     stage('Build') {
       steps {
         echo "------------>Build<------------"
-		sh 'chmod +x ./comun/gradlew'
-        sh './gradlew build -x test'
+		sh 'chmod +x ./microservicio/gradlew'
+        sh './microservicio/gradlew build -x test'
       }
     }
 
@@ -57,10 +57,10 @@ pipeline {
     stage('Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
-		sh 'chmod +x ./comun/gradlew'
-		sh './gradlew clean'
-        sh './gradlew --b build.gradle test --scan'
-        sh './gradlew --b build.gradle jacocoTestReport'
+		sh 'chmod +x ./microservicio/gradlew'
+		sh './microservicio/gradlew clean'
+        sh './microservicio/gradlew --b build.gradle test --scan'
+        sh './microservicio/gradlew --b build.gradle jacocoTestReport'
       }
     }
 
