@@ -23,4 +23,11 @@ public interface RepositorioReserva {
      */
     void eliminar(Long id);
     
+	/**
+	 * Permite validar si existe un usuario con un nombre
+	 * @param nombre
+	 * @return si existe o no
+	 */
+	boolean existe(String tipoIdentificacion, String numeroIdentificacion);
+    
 }

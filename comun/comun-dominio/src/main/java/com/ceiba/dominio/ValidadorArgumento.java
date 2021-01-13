@@ -38,12 +38,19 @@ public class ValidadorArgumento {
             throw new ExcepcionValorInvalido(mensaje);
         }
     }
+    
+    public static void validarPositivo(Integer valor, String mensaje) {
+        if (valor <= 0) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
 
-    public static void validarIgual(Double valor, Double valorEsperado, String mensaje) {
+    public static void validarIgual(Integer valor, Integer valorEsperado, String mensaje) {
         if (!valor.equals(valorEsperado)) {
             throw new ExcepcionValorInvalido(mensaje);
         }
     }
+    
 
     public static void validarLongitudMinima(Object valor, int longitudMinima, String mensaje) {
         if (valor.toString().length() < longitudMinima) {

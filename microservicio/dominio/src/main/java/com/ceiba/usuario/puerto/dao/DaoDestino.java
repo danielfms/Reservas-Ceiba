@@ -11,4 +11,10 @@ public interface DaoDestino {
      * @return los usuarios
      */
     List<DtoDestino> listar();
+    
+    /**
+     * Permite listar usuarios
+     * @return los usuarios
+     */
+    DtoDestino consultar(Long id);
 }

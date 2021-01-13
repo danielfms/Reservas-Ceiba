@@ -1,4 +1,4 @@
-package com.ceiba.usuario.controlador;
+package com.ceiba.Reserva.controlador;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -7,9 +7,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.usuario.comando.ComandoUsuario;
-import com.ceiba.usuario.controlador.ComandoControladorUsuario;
-import com.ceiba.usuario.servicio.testdatabuilder.ComandoUsuarioTestDataBuilder;
+import com.ceiba.reserva.controlador.ComandoControladorReserva;
+import com.ceiba.usuario.comando.ComandoReserva;
+import com.ceiba.usuario.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,8 +23,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes= ApplicationMock.class)
-@WebMvcTest(ComandoControladorUsuario.class)
-public class ComandoControladorUsuarioTest {
+@WebMvcTest(ComandoControladorReserva.class)
+public class ComandoControladorReservaTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -35,36 +35,36 @@ public class ComandoControladorUsuarioTest {
     @Test
     public void crear() throws Exception{
         // arrange
-        ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
+        ComandoReserva reserva = new ComandoReservaTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(post("/usuarios")
+        mocMvc.perform(post("/reservas")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(usuario)))
+                .content(objectMapper.writeValueAsString(reserva)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 2}"));
+                .andExpect(content().json("{'valor': 0}"));
     }
 
     @Test
     public void actualizar() throws Exception{
         // arrange
-        Long id = 2L;
-        ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
+        Long id = 1L;
+        ComandoReserva reserva = new ComandoReservaTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(put("/usuarios/{id}",id)
+        mocMvc.perform(put("/reservas/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(usuario)))
+                .content(objectMapper.writeValueAsString(reserva)))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void eliminar() throws Exception {
         // arrange
-        Long id = 2L;
+        Long id = 1L;
 
         // act - assert
-        mocMvc.perform(delete("/usuarios/{id}",id)
+        mocMvc.perform(delete("/reservas/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

@@ -19,7 +19,7 @@ public class ComandoReserva{
     private String numeroIdentificacion;
     private Integer pasajeros;
     private Integer valorTotal;
-    private Boolean activo;
+    private Boolean activa;
     private String token;
     private LocalDateTime fechaCreacion;
 

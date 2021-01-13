@@ -1,0 +1,1 @@
+select count(1) from reserva where tipo_identificacion = :tipo_identificacion and numero_identificacion = :numero_identificacion and activa = true;

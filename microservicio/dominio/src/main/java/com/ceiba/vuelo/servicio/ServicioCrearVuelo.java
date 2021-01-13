@@ -12,7 +12,7 @@ public class ServicioCrearVuelo {
         this.repositorioVuelo = repositorioVuelo;
     }
 
-    public Long ejecutar(Vuelo usuario) {
-        return this.repositorioVuelo.crear(usuario);
+    public Long ejecutar(Vuelo vuelo) {
+        return this.repositorioVuelo.crear(vuelo);
     }
 }

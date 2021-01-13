@@ -41,7 +41,7 @@ public class CustomNamedParameterJdbcTemplate {
 				Field field = fields[i];
 				if (!Modifier.isStatic(field.getModifiers()) && !Modifier.isFinal(field.getModifiers())) {
 					field.setAccessible(true);
-					paramSource.addValue(field.getName(), field.get(object));
+					paramSource.addValue(camelToSnake(field.getName()), field.get(object));
 					field.setAccessible(false);
 				}
 			} catch (Exception e) {
@@ -53,5 +53,10 @@ public class CustomNamedParameterJdbcTemplate {
 	
 	public NamedParameterJdbcTemplate getNamedParameterJdbcTemplate() {
 		return this.namedParameterJdbcTemplate;
+	}
+	
+	public String camelToSnake(final String camelStr){
+		String ret = camelStr.replaceAll("([A-Z]+)([A-Z][a-z])", "$1_$2").replaceAll("([a-z])([A-Z])", "$1_$2");
+		return ret.toLowerCase();
 	}
 }

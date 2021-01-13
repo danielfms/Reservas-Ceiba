@@ -11,4 +11,6 @@ public interface DaoVuelo {
      * @return los usuarios
      */
     List<DtoVuelo> listar();
+    
+    DtoVuelo consultar(Long id);
 }
