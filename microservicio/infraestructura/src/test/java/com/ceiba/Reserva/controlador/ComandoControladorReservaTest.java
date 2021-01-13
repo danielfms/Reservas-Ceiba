@@ -35,21 +35,25 @@ public class ComandoControladorReservaTest {
     @Test
     public void crear() throws Exception{
         // arrange
-        ComandoReserva reserva = new ComandoReservaTestDataBuilder().build();
+        ComandoReserva reserva = new ComandoReservaTestDataBuilder()
+        		.conTipoIdentificacion("TI")
+        		.conNumeroIdentificacion("9999999999")
+        		.build();
 
         // act - assert
         mocMvc.perform(post("/reservas")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(reserva)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 0}"));
+                .andExpect(content().json("{'valor': 2}"));
     }
 
     @Test
     public void actualizar() throws Exception{
         // arrange
         Long id = 1L;
-        ComandoReserva reserva = new ComandoReservaTestDataBuilder().build();
+        ComandoReserva reserva = new ComandoReservaTestDataBuilder()
+        		.conToken("ABCDF").build();
 
         // act - assert
         mocMvc.perform(put("/reservas/{id}",id)

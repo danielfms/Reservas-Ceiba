@@ -27,7 +27,7 @@ public class ServicioCrearReservaTest {
         Reserva reserva = new ReservaTestDataBuilder().build();
         DaoVuelo daoVuelo = Mockito.mock(DaoVuelo.class);
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
-        Mockito.when(repositorioReserva.existe(Mockito.anyString(), Mockito.anyString())).thenReturn(true);
+        Mockito.when(repositorioReserva.existe(Mockito.anyString(), Mockito.anyString())).thenReturn(false);
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva, daoVuelo);
         // act - assert
         BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ExcepcionDuplicidad.class,"El usuario ya tiene una reserva activa");

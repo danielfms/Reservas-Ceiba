@@ -27,8 +27,18 @@ public class ComandoReservaTestDataBuilder {
         fechaCreacion = LocalDateTime.now();
     }
 
-    public ComandoReservaTestDataBuilder conNombre(String nombre) {
-        this.token = nombre;
+    public ComandoReservaTestDataBuilder conToken(String token) {
+        this.token = token;
+        return this;
+    }
+    
+    public ComandoReservaTestDataBuilder conTipoIdentificacion(String tipoIdentificacion) {
+        this.tipoIdentificacion = tipoIdentificacion;
+        return this;
+    }
+    
+    public ComandoReservaTestDataBuilder conNumeroIdentificacion(String numeroIdentificacion) {
+        this.tipoIdentificacion = tipoIdentificacion;
         return this;
     }
 
