@@ -44,15 +44,16 @@ public class ReservaTestDataBuilder {
     }
 
     public Reserva build() {
-        return new Reserva(
+        Reserva reserva = new Reserva(
         		id,
         		idVuelo,
         		tipoIdentificacion,
         		numeroIdentificacion,
         		pasajeros,
-        		valorTotal,
-        		activa,
-        		token,
-        		fechaCreacion);
+        		valorTotal);
+        reserva.setActiva(activa);
+        reserva.setFechaCreacion(fechaCreacion);
+        reserva.setToken(token);
+        return reserva;
     }
 }
