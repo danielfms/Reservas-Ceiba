@@ -57,7 +57,6 @@ pipeline {
     stage('Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
-		sh 'rm .scannerwork/report-task.txt'
 		sh 'chmod +x ./microservicio/gradlew'
 		sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
         sh './microservicio/gradlew --b ./microservicio/build.gradle test'
