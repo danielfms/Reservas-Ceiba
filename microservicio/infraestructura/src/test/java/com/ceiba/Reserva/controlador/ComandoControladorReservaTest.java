@@ -7,8 +7,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.ceiba.ApplicationMock;
+import com.ceiba.comando.ComandoReserva;
 import com.ceiba.reserva.controlador.ComandoControladorReserva;
-import com.ceiba.usuario.comando.ComandoReserva;
 import com.ceiba.usuario.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
 
 import org.junit.Test;

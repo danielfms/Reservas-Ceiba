@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ceiba.usuario.consulta.ManejadorListarVuelo;
+import com.ceiba.consulta.ManejadorListarVuelo;
 import com.ceiba.usuario.modelo.dto.DtoVuelo;
 
 import io.swagger.annotations.Api;

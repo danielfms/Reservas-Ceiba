@@ -4,7 +4,8 @@ import com.ceiba.ComandoRespuesta;
 import com.ceiba.avion.comando.manejador.ManejadorActualizarAvion;
 import com.ceiba.avion.comando.manejador.ManejadorCrearAvion;
 import com.ceiba.avion.comando.manejador.ManejadorEliminarAvion;
-import com.ceiba.usuario.comando.ComandoAvion;
+import com.ceiba.comando.ComandoAvion;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

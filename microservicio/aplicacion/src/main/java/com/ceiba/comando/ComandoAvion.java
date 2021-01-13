@@ -1,6 +1,4 @@
-package com.ceiba.usuario.comando;
-
-import java.time.LocalDateTime;
+package com.ceiba.comando;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,10 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ComandoUsuario{
+public class ComandoAvion{
 
     private Long id;
-    private String nombre;
-    private String clave;
-    private LocalDateTime fecha;
+    private String matricula;
+    private Integer pasajeros;
 }

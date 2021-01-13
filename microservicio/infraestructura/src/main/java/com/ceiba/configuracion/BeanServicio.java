@@ -13,11 +13,7 @@ import com.ceiba.usuario.puerto.dao.DaoVuelo;
 import com.ceiba.usuario.puerto.repositorio.RepositorioAvion;
 import com.ceiba.usuario.puerto.repositorio.RepositorioDestino;
 import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
-import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
 import com.ceiba.usuario.puerto.repositorio.RepositorioVuelo;
-import com.ceiba.usuario.servicio.ServicioActualizarUsuario;
-import com.ceiba.usuario.servicio.ServicioCrearUsuario;
-import com.ceiba.usuario.servicio.ServicioEliminarUsuario;
 import com.ceiba.vuelo.servicio.ServicioActualizarVuelo;
 import com.ceiba.vuelo.servicio.ServicioCrearVuelo;
 import com.ceiba.vuelo.servicio.ServicioEliminarVuelo;
@@ -27,21 +23,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BeanServicio {
-
-    @Bean
-    public ServicioCrearUsuario servicioCrearUsuario(RepositorioUsuario repositorioUsuario) {
-        return new ServicioCrearUsuario(repositorioUsuario);
-    }
-
-    @Bean
-    public ServicioEliminarUsuario servicioEliminarUsuario(RepositorioUsuario repositorioUsuario) {
-        return new ServicioEliminarUsuario(repositorioUsuario);
-    }
-    
-    @Bean
-    public ServicioActualizarUsuario servicioActualizarUsuario(RepositorioUsuario repositorioUsuario) {
-        return new ServicioActualizarUsuario(repositorioUsuario);
-    }
     
     @Bean
     public ServicioCrearAvion servicioCrearAvion(RepositorioAvion repositorioAvion) {

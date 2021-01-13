@@ -1,8 +1,8 @@
 package com.ceiba.usuario.servicio.testdatabuilder;
 
-import com.ceiba.usuario.comando.ComandoReserva;
-
 import java.time.LocalDateTime;
+
+import com.ceiba.comando.ComandoReserva;
 public class ComandoReservaTestDataBuilder {
 
 	private Long id;
@@ -38,7 +38,7 @@ public class ComandoReservaTestDataBuilder {
     }
     
     public ComandoReservaTestDataBuilder conNumeroIdentificacion(String numeroIdentificacion) {
-        this.tipoIdentificacion = tipoIdentificacion;
+        this.numeroIdentificacion = numeroIdentificacion;
         return this;
     }
 

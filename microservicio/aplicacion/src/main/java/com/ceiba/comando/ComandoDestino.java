@@ -1,4 +1,4 @@
-package com.ceiba.usuario.comando;
+package com.ceiba.comando;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,9 +9,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ComandoAvion{
+public class ComandoDestino{
 
     private Long id;
-    private String matricula;
-    private Integer pasajeros;
+    private String ciudadOrigen;
+    private String ciudadDestino;
+    private Integer valorBase;
 }

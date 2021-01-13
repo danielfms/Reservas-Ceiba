@@ -1,12 +1,12 @@
 package com.ceiba.destino.comando.manejador;
 
+import com.ceiba.comando.ComandoDestino;
+import com.ceiba.comando.fabrica.FabricaDestino;
 import com.ceiba.destino.servicio.ServicioActualizarDestino;
 import com.ceiba.manejador.ManejadorComando;
 
 import org.springframework.stereotype.Component;
 
-import com.ceiba.usuario.comando.ComandoDestino;
-import com.ceiba.usuario.comando.fabrica.FabricaDestino;
 import com.ceiba.usuario.modelo.entidad.Destino;
 
 

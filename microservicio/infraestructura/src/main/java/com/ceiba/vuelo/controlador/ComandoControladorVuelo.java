@@ -1,7 +1,7 @@
 package com.ceiba.vuelo.controlador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.usuario.comando.ComandoVuelo;
+import com.ceiba.comando.ComandoVuelo;
 import com.ceiba.vuelo.comando.manejador.ManejadorActualizarVuelo;
 import com.ceiba.vuelo.comando.manejador.ManejadorCrearVuelo;
 import com.ceiba.vuelo.comando.manejador.ManejadorEliminarVuelo;

@@ -1,14 +1,13 @@
 package com.ceiba.destino.comando.manejador;
 
 import com.ceiba.ComandoRespuesta;
+import com.ceiba.comando.ComandoDestino;
+import com.ceiba.comando.fabrica.FabricaDestino;
 import com.ceiba.destino.servicio.ServicioCrearDestino;
 import com.ceiba.manejador.ManejadorComandoRespuesta;
 import com.ceiba.usuario.modelo.entidad.Destino;
 
 import org.springframework.stereotype.Component;
-
-import com.ceiba.usuario.comando.ComandoDestino;
-import com.ceiba.usuario.comando.fabrica.FabricaDestino;
 
 @Component
 public class ManejadorCrearDestino implements ManejadorComandoRespuesta<ComandoDestino, ComandoRespuesta<Long>> {

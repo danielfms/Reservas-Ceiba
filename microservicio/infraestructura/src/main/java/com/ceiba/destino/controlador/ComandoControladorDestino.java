@@ -1,10 +1,11 @@
 package com.ceiba.destino.controlador;
 
 import com.ceiba.ComandoRespuesta;
+import com.ceiba.comando.ComandoDestino;
 import com.ceiba.destino.comando.manejador.ManejadorActualizarDestino;
 import com.ceiba.destino.comando.manejador.ManejadorCrearDestino;
 import com.ceiba.destino.comando.manejador.ManejadorEliminarDestino;
-import com.ceiba.usuario.comando.ComandoDestino;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

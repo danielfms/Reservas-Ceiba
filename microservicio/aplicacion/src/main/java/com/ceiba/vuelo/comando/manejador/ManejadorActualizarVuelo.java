@@ -1,13 +1,12 @@
 package com.ceiba.vuelo.comando.manejador;
 
+import com.ceiba.comando.ComandoVuelo;
+import com.ceiba.comando.fabrica.FabricaVuelo;
 import com.ceiba.manejador.ManejadorComando;
 import com.ceiba.usuario.modelo.entidad.Vuelo;
 import com.ceiba.vuelo.servicio.ServicioActualizarVuelo;
 
 import org.springframework.stereotype.Component;
-
-import com.ceiba.usuario.comando.ComandoVuelo;
-import com.ceiba.usuario.comando.fabrica.FabricaVuelo;
 
 @Component
 public class ManejadorActualizarVuelo implements ManejadorComando<ComandoVuelo> {

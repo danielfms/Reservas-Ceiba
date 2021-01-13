@@ -1,9 +1,8 @@
-package com.ceiba.usuario.comando.fabrica;
+package com.ceiba.comando.fabrica;
 
+import com.ceiba.comando.ComandoAvion;
 import com.ceiba.usuario.modelo.entidad.Avion;
 import org.springframework.stereotype.Component;
-
-import com.ceiba.usuario.comando.ComandoAvion;
 
 @Component
 public class FabricaAvion {

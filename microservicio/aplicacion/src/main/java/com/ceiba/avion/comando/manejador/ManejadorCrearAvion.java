@@ -2,12 +2,11 @@ package com.ceiba.avion.comando.manejador;
 
 import com.ceiba.ComandoRespuesta;
 import com.ceiba.avion.servicio.ServicioCrearAvion;
+import com.ceiba.comando.ComandoAvion;
+import com.ceiba.comando.fabrica.FabricaAvion;
 import com.ceiba.manejador.ManejadorComandoRespuesta;
 import com.ceiba.usuario.modelo.entidad.Avion;
 import org.springframework.stereotype.Component;
-
-import com.ceiba.usuario.comando.ComandoAvion;
-import com.ceiba.usuario.comando.fabrica.FabricaAvion;
 
 @Component
 public class ManejadorCrearAvion implements ManejadorComandoRespuesta<ComandoAvion, ComandoRespuesta<Long>> {

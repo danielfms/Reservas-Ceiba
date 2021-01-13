@@ -1,14 +1,13 @@
 package com.ceiba.reserva.comando.manejador;
 
 import com.ceiba.ComandoRespuesta;
+import com.ceiba.comando.ComandoReserva;
+import com.ceiba.comando.fabrica.FabricaReserva;
 import com.ceiba.manejador.ManejadorComandoRespuesta;
 import com.ceiba.reserva.servicio.ServicioCrearReserva;
 import com.ceiba.usuario.modelo.entidad.Reserva;
 
 import org.springframework.stereotype.Component;
-
-import com.ceiba.usuario.comando.ComandoReserva;
-import com.ceiba.usuario.comando.fabrica.FabricaReserva;
 
 @Component
 public class ManejadorCrearReserva implements ManejadorComandoRespuesta<ComandoReserva, ComandoRespuesta<Long>> {

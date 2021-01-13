@@ -2,11 +2,11 @@ package com.ceiba.destino.controlador;
 
 import java.util.List;
 
-import com.ceiba.usuario.consulta.ManejadorListarDestino;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ceiba.consulta.ManejadorListarDestino;
 import com.ceiba.usuario.modelo.dto.DtoDestino;
 
 import io.swagger.annotations.Api;
