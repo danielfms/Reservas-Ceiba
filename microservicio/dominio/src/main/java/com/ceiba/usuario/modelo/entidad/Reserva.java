@@ -9,7 +9,6 @@ import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
 import static com.ceiba.dominio.ValidadorArgumento.validarIgual;
 import static com.ceiba.dominio.ValidadorArgumento.validarLongitudMinima;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 
 @Getter
@@ -34,7 +33,8 @@ public class Reserva {
     private Boolean activa;
     private String token;
     private LocalDateTime fechaCreacion;
-	public Reserva(Long id, Long idVuelo, String tipoIdentificacion, String numeroIdentificacion, Integer pasajeros, Integer valorTotal) {
+	public Reserva(Long id, Long idVuelo, String tipoIdentificacion, String numeroIdentificacion, Integer pasajeros,
+			Integer valorTotal, Boolean activa, String token, LocalDateTime fechaCreacion) {
 		
 		validarObligatorio(tipoIdentificacion, SE_DEBE_INGRESAR_EL_TIPO_IDENTIFICACION);
 		validarObligatorio(numeroIdentificacion, SE_DEBE_INGRESAR_EL_NUMERO_IDENTIFICACION);
@@ -48,9 +48,9 @@ public class Reserva {
 		this.numeroIdentificacion = numeroIdentificacion;
 		this.pasajeros = pasajeros;
 		this.valorTotal = valorTotal;
-		this.activa = true;
-		this.token = UUID.randomUUID().toString();
-		this.fechaCreacion = LocalDateTime.now();
+		this.activa = activa;
+		this.token = token;
+		this.fechaCreacion = fechaCreacion;
 	}
     
     
