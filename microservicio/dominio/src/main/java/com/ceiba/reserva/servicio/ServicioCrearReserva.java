@@ -35,28 +35,28 @@ public class ServicioCrearReserva{
         }
     }
     
-    private void validarValorFinDeSemana(Reserva reserva, DtoVuelo vuelo) {
+    public void validarValorFinDeSemana(Reserva reserva, DtoVuelo vuelo) {
         if(esFinDeSemana(vuelo.getFecha())){
         	//Recargo adicional de 10%
         	reserva.setValorTotal(reserva.getValorTotal() + (reserva.getValorTotal() * 10)/100);
         }
     }
     
-    private void validarDuracionVuelo(Reserva reserva, DtoVuelo vuelo) {
+    public void validarDuracionVuelo(Reserva reserva, DtoVuelo vuelo) {
         if(vuelo.getDuracion().compareTo(60) > 0 && !esFinDeSemana(vuelo.getFecha())){
         	//Descuento  de 5%
         	reserva.setValorTotal(reserva.getValorTotal() - (reserva.getValorTotal() * 5)/100);
         }
     }
     
-    private void validacionesLogicaDeNegocio(Reserva reserva){
+    public void validacionesLogicaDeNegocio(Reserva reserva){
     	DtoVuelo vuelo = daoVuelo.consultar(reserva.getIdVuelo());
     	validarExistenciaReservaActiva(reserva);
     	validarValorFinDeSemana(reserva, vuelo);
     	validarDuracionVuelo(reserva, vuelo);
     }
     
-    private boolean esFinDeSemana(LocalDateTime fecha){
+    public boolean esFinDeSemana(LocalDateTime fecha){
     	DayOfWeek d = fecha.getDayOfWeek();
     	return (d == DayOfWeek.SATURDAY || d == DayOfWeek.SUNDAY);
     }
