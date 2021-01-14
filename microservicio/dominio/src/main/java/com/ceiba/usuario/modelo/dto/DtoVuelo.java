@@ -14,4 +14,5 @@ public class DtoVuelo {
     private LocalDateTime fecha;
     private Integer duracion;
 
+
 }

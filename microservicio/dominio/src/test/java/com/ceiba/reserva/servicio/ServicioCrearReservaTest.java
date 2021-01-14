@@ -8,7 +8,7 @@ import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.reserva.servicio.testdatabuilder.DtoVueloTestDataBuilder;
 import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import java.time.LocalDateTime;
 
@@ -46,14 +46,17 @@ public class ServicioCrearReservaTest {
         // arrange
         ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conValorTotal(10);
         DtoVueloTestDataBuilder vueloTestDataBuilder = new DtoVueloTestDataBuilder().conFecha(LocalDateTime.of(2021, 1, 16, 0, 0));
-        ServicioCrearReserva servicioCrearReserva= Mockito.mock(ServicioCrearReserva.class);
-        
+        DaoVuelo daoVuelo = Mockito.mock(DaoVuelo.class);
+        RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
+        Mockito.when(daoVuelo.consultar(Mockito.anyLong())).thenReturn(vueloTestDataBuilder.build());
+        Mockito.when(repositorioReserva.existe(Mockito.anyString(), Mockito.anyString())).thenReturn(false);
+        ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva, daoVuelo);
         // act 
-        Reserva reserva =  reservaTestDataBuilder.build();
-        servicioCrearReserva.validarValorFinDeSemana(reserva, vueloTestDataBuilder.build());
+        Reserva reserva = reservaTestDataBuilder.build();
+        servicioCrearReserva.ejecutar(reserva);
         
         //assert
-        assertTrue("El valor total debe tener una recargo de 10%", !reserva.getValorTotal().equals(11));
+        assertEquals(11, reserva.getValorTotal().intValue());
     }
     
     @Test
@@ -63,13 +66,16 @@ public class ServicioCrearReservaTest {
         DtoVueloTestDataBuilder vueloTestDataBuilder = new DtoVueloTestDataBuilder()
         		.conFecha(LocalDateTime.of(2021, 1, 13, 0, 0))
         		.conDuracion(120);
-        ServicioCrearReserva servicioCrearReserva= Mockito.mock(ServicioCrearReserva.class);
-        
+        DaoVuelo daoVuelo = Mockito.mock(DaoVuelo.class);
+        RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
+        Mockito.when(daoVuelo.consultar(Mockito.anyLong())).thenReturn(vueloTestDataBuilder.build());
+        Mockito.when(repositorioReserva.existe(Mockito.anyString(), Mockito.anyString())).thenReturn(false);
+        ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva, daoVuelo);
         // act 
-        Reserva reserva =  reservaTestDataBuilder.build();
-        servicioCrearReserva.validarDuracionVuelo(reserva, vueloTestDataBuilder.build());
+        Reserva reserva = reservaTestDataBuilder.build();
+        servicioCrearReserva.ejecutar(reserva);
         
         //assert
-        assertTrue("El valor total debe tener un descuento de 5%", !reserva.getValorTotal().equals(19));
+        assertEquals(19, reserva.getValorTotal().intValue());
     }
 }

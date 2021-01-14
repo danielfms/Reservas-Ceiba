@@ -12,6 +12,8 @@ import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
 
 public class ServicioCrearReserva{
 	
+
+
 	private static final String EL_USUARIO_YA_TIENE_UNA_RESERVA_ACTIVA_EN_EL_SISTEMA = "El usuario ya tiene una reserva activa en el sistema";
 	
 	private final RepositorioReserva repositorioReserva;
@@ -24,7 +26,10 @@ public class ServicioCrearReserva{
     }
 
     public Long ejecutar(Reserva reserva) {
-    	validacionesLogicaDeNegocio(reserva);
+    	DtoVuelo vuelo = daoVuelo.consultar(reserva.getIdVuelo());
+    	validarExistenciaReservaActiva(reserva);
+    	validarValorFinDeSemana(reserva, vuelo);
+    	validarDuracionVuelo(reserva, vuelo);
         return this.repositorioReserva.crear(reserva);
     }
     
@@ -35,28 +40,20 @@ public class ServicioCrearReserva{
         }
     }
     
-    public void validarValorFinDeSemana(Reserva reserva, DtoVuelo vuelo) {
+    private void validarValorFinDeSemana(Reserva reserva, DtoVuelo vuelo) {
         if(esFinDeSemana(vuelo.getFecha())){
-        	//Recargo adicional de 10%
-        	reserva.setValorTotal(reserva.getValorTotal() + (reserva.getValorTotal() * 10)/100);
+        	reserva.calcularValorPorFinDeSemana();
         }
     }
     
-    public void validarDuracionVuelo(Reserva reserva, DtoVuelo vuelo) {
+    private void validarDuracionVuelo(Reserva reserva, DtoVuelo vuelo) {
         if(vuelo.getDuracion().compareTo(60) > 0 && !esFinDeSemana(vuelo.getFecha())){
-        	//Descuento  de 5%
-        	reserva.setValorTotal(reserva.getValorTotal() - (reserva.getValorTotal() * 5)/100);
+        	reserva.calcularValorPorDuracionNoFinDeSemana();
         }
     }
     
-    public void validacionesLogicaDeNegocio(Reserva reserva){
-    	DtoVuelo vuelo = daoVuelo.consultar(reserva.getIdVuelo());
-    	validarExistenciaReservaActiva(reserva);
-    	validarValorFinDeSemana(reserva, vuelo);
-    	validarDuracionVuelo(reserva, vuelo);
-    }
     
-    public boolean esFinDeSemana(LocalDateTime fecha){
+    private boolean esFinDeSemana(LocalDateTime fecha){
     	DayOfWeek d = fecha.getDayOfWeek();
     	return (d == DayOfWeek.SATURDAY || d == DayOfWeek.SUNDAY);
     }

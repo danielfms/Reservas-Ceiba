@@ -9,6 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.ceiba.ApplicationMock;
 import com.ceiba.comando.ComandoReserva;
 import com.ceiba.reserva.controlador.ComandoControladorReserva;
+import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
 import com.ceiba.usuario.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
 
 import org.junit.Test;
@@ -55,11 +56,14 @@ public class ComandoControladorReservaTest {
         ComandoReserva reserva = new ComandoReservaTestDataBuilder()
         		.conToken("ABCDF").build();
 
+        
         // act - assert
         mocMvc.perform(put("/reservas/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(reserva)))
                 .andExpect(status().isOk());
+        
+        //Consultar que el registro este actualizado
     }
 
     @Test

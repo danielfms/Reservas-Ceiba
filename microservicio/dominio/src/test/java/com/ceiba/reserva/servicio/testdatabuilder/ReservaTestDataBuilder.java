@@ -24,7 +24,7 @@ public class ReservaTestDataBuilder {
         pasajeros = 1;
         valorTotal = 10000;
         activa = true;
-        token = "TOKEN12345";
+        token = "TOKEN";
         fechaCreacion = LocalDateTime.now();
     }
 

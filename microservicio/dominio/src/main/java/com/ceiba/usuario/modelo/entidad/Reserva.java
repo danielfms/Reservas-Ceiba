@@ -23,6 +23,9 @@ public class Reserva {
     
     private static final int LONGITUD_MINIMA_NUMERO_IDENTIFICACION = 6;
     private static final int LONGITUD_TIPO_IDENTIFICACION = 2;
+	private static final int RECARGO_ADICIONAL_DIEZ_PORCIENTO_POR_FIN_DE_SEMANA = 10;
+	private static final int DESCUENTO_CINCO_PORCIENTO_POR_DURACION_NO_FIN_DE_SEMANA = 5;
+	private static final int CIEN_PARA_DIVIDIR_Y_OBTENER_PORCENTAJE = 100;
     
     private Long id;
     private Long idVuelo;
@@ -53,7 +56,13 @@ public class Reserva {
 		this.fechaCreacion = fechaCreacion;
 	}
     
+    public void calcularValorPorFinDeSemana(){
+    	this.valorTotal = this.valorTotal + (this.valorTotal * RECARGO_ADICIONAL_DIEZ_PORCIENTO_POR_FIN_DE_SEMANA)/CIEN_PARA_DIVIDIR_Y_OBTENER_PORCENTAJE;
+    }
     
+    public void calcularValorPorDuracionNoFinDeSemana(){
+    	this.valorTotal = this.valorTotal - (this.valorTotal * DESCUENTO_CINCO_PORCIENTO_POR_DURACION_NO_FIN_DE_SEMANA)/CIEN_PARA_DIVIDIR_Y_OBTENER_PORCENTAJE;
+    }
 
 
 }
