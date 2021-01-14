@@ -40,16 +40,16 @@ pipeline {
     stage('Compile & Unit Tests') {
 		steps{
         echo "------------>Unit Tests<------------"
-		sh 'chmod +x ./microservicio/gradlew'
-		sh './microservicio/gradlew --b ./microservicio/build.gradle test'
+		sh 'chmod +x ./reservas-backend/microservicio/gradlew'
+		sh './reservas-backend/microservicio/gradlew --b ./reservas-backend/microservicio/build.gradle test'
       }
     }
 
     stage('Build') {
       steps {
         echo "------------>Build<------------"
-		sh 'chmod +x ./microservicio/gradlew'
-        sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
+		sh 'chmod +x ./reservas-backend/microservicio/gradlew'
+        sh './reservas-backend/microservicio/gradlew --b ./reservas-backend/microservicio/build.gradle build -x test'
       }
     }
 
@@ -57,10 +57,10 @@ pipeline {
     stage('Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
-		sh 'chmod +x ./microservicio/gradlew'
-		sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
-        sh './microservicio/gradlew --b ./microservicio/build.gradle test'
-        sh './microservicio/gradlew --b ./microservicio/build.gradle jacocoTestReport'
+		sh 'chmod +x ./reservas-backend/microservicio/gradlew'
+		sh './reservas-backend/microservicio/gradlew --b ./reservas-backend/microservicio/build.gradle clean'
+        sh './reservas-backend/microservicio/gradlew --b ./reservas-backend/microservicio/build.gradle test'
+        sh './reservas-backend/microservicio/gradlew --b ./reservas-backend/microservicio/build.gradle jacocoTestReport'
       }
     }
 
