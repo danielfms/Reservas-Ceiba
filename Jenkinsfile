@@ -82,7 +82,7 @@ post {
     success {
       echo 'This will run only if successful'
       mail (to: 'daniel.marin@ceiba.com.co',subject: "SUCCESS Pipeline:${currentBuild.fullDisplayName}",body: "Hi Ceiba <3")
-      junit '**/test-results/testDebugUnitTest/*.xml'
+      junit '**/test-results/test/*.xml'
 
     }
     failure {
