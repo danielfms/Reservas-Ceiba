@@ -1,7 +1,5 @@
 package com.ceiba.vuelo.adaptador.dao;
 
-import java.time.DayOfWeek;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
@@ -40,8 +38,4 @@ public class DaoVueloMysql implements DaoVuelo {
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlConsultar,paramSource, new MapeoVuelo());
     }
     
-    public boolean esFinDeSemana(LocalDateTime fecha){
-    	DayOfWeek d = fecha.getDayOfWeek();
-    	return (d == DayOfWeek.SATURDAY || d == DayOfWeek.SUNDAY);
-    }
 }
