@@ -3,11 +3,17 @@ package com.ceiba.Reserva.controlador;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.ceiba.ApplicationMock;
+import com.ceiba.comando.ComandoReserva;
 import com.ceiba.reserva.controlador.ConsultaControladorReserva;
+import com.ceiba.usuario.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +28,9 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(ConsultaControladorReserva.class)
 public class ConsultaControladorReservaTest {
 
+	@Autowired
+	private ObjectMapper objectMapper;
+	
     @Autowired
     private MockMvc mocMvc;
 
@@ -39,6 +48,7 @@ public class ConsultaControladorReservaTest {
     
     @Test
     public void consultar() throws Exception {
+    	
         // arrange
     	Long id = 1L;
 
@@ -46,7 +56,9 @@ public class ConsultaControladorReservaTest {
         mocMvc.perform(get("/reservas/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id", is(1)));
+                .andExpect(jsonPath("$.tipoIdentificacion", is("CC")))
+                .andExpect(jsonPath("$.numeroIdentificacion", is("12378444554")));
+        
     }
 
 }

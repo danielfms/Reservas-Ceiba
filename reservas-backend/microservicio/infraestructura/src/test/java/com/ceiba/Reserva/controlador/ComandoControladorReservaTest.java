@@ -67,11 +67,10 @@ public class ComandoControladorReservaTest {
                 .andExpect(status().isOk());
         
         //Validar que el registro fue efectivamente modificado
-        mocMvc.perform(get("/reservas")
+        mocMvc.perform(get("/reservas/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].token", is("ABCDF")));
+                .andExpect(jsonPath("$.token", is("ABCDF")));
         
         
     }
