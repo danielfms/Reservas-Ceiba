@@ -8,12 +8,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.flywaydb.core.Flyway;
+
 import com.ceiba.ApplicationMock;
 import com.ceiba.comando.ComandoReserva;
 import com.ceiba.reserva.controlador.ConsultaControladorReserva;
 import com.ceiba.usuario.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +31,25 @@ import org.springframework.test.web.servlet.MockMvc;
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes= ApplicationMock.class)
 @WebMvcTest(ConsultaControladorReserva.class)
-@Import(ApplicationMock.class)
 public class ConsultaControladorReservaTest {
 
     @Autowired
     private MockMvc mocMvc;
-
+    
+    @Autowired
+    private Flyway flyway;
+    
+    @Before
+    public void before() {
+        flyway.clean();
+        flyway.migrate();
+    }
+    
+    @After
+    public void after() {
+        flyway.clean();
+    }
+    
     @Test
     public void listar() throws Exception {
         // arrange
