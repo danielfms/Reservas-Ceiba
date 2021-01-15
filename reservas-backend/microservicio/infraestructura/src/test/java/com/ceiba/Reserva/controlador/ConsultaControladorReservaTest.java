@@ -55,8 +55,7 @@ public class ConsultaControladorReservaTest {
         // act - assert
         mocMvc.perform(get("/reservas/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("numeroIdentificacion").isNotEmpty());
+                .andExpect(status().isOk());
 
     }
 
