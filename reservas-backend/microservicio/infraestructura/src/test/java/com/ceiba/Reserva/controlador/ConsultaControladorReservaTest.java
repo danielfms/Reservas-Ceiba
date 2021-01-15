@@ -18,6 +18,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -26,11 +27,9 @@ import org.springframework.test.web.servlet.MockMvc;
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes= ApplicationMock.class)
 @WebMvcTest(ConsultaControladorReserva.class)
+@Import(ApplicationMock.class)
 public class ConsultaControladorReservaTest {
 
-	@Autowired
-	private ObjectMapper objectMapper;
-	
     @Autowired
     private MockMvc mocMvc;
 
@@ -46,17 +45,28 @@ public class ConsultaControladorReservaTest {
                 .andExpect(jsonPath("$[0].token", is("TOKEN")));
     }
     
+//    @Test
+//    public void consultar() throws Exception {
+//        // arrange
+//    	Long id = 1L;
+//
+//        // act - assert
+//        mocMvc.perform(get("/reservas/{id}", id)
+//                .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk());
+//    }
+    
     @Test
     public void consultar() throws Exception {
-    	
         // arrange
     	Long id = 1L;
-
         // act - assert
         mocMvc.perform(get("/reservas/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
-
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.tipoIdentificacion", is("CC")))
+                .andExpect(jsonPath("$.numeroIdentificacion", is("12378444554")));
+        
     }
 
 }
