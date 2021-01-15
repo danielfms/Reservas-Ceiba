@@ -10,11 +10,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.flywaydb.core.Flyway;
+
 import com.ceiba.ApplicationMock;
 import com.ceiba.comando.ComandoReserva;
 import com.ceiba.reserva.controlador.ComandoControladorReserva;
 import com.ceiba.usuario.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +39,20 @@ public class ComandoControladorReservaTest {
 
     @Autowired
     private MockMvc mocMvc;
+    
+    @Autowired
+    private Flyway flyway;
+    
+    @Before
+    public void before() {
+        flyway.clean();
+        flyway.migrate();
+    }
+    
+    @After
+    public void after() {
+        flyway.clean();
+    }
 
     @Test
     public void crear() throws Exception{
