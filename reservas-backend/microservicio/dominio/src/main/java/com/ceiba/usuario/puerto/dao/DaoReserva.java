@@ -11,4 +11,6 @@ public interface DaoReserva {
      * @return los usuarios
      */
     List<DtoReserva> listar();
+    
+    DtoReserva consultar(Long id);
 }

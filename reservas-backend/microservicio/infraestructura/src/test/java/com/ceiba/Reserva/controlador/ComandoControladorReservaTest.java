@@ -1,15 +1,18 @@
 package com.ceiba.Reserva.controlador;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.core.Is.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.comando.ComandoReserva;
 import com.ceiba.reserva.controlador.ComandoControladorReserva;
-import com.ceiba.usuario.puerto.repositorio.RepositorioReserva;
 import com.ceiba.usuario.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
 
 import org.junit.Test;
@@ -63,7 +66,14 @@ public class ComandoControladorReservaTest {
                 .content(objectMapper.writeValueAsString(reserva)))
                 .andExpect(status().isOk());
         
-        //Consultar que el registro este actualizado
+        //Validar que el registro fue efectivamente modificado
+        mocMvc.perform(get("/reservas")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].token", is("ABCDF")));
+        
+        
     }
 
     @Test
@@ -76,5 +86,9 @@ public class ComandoControladorReservaTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
+        
+        mocMvc.perform(get("/reservas/{id}", id)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
     }
 }

@@ -36,5 +36,17 @@ public class ConsultaControladorReservaTest {
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].token", is("TOKEN")));
     }
+    
+    @Test
+    public void consultar() throws Exception {
+        // arrange
+    	Long id = 1L;
+
+        // act - assert
+        mocMvc.perform(get("/reservas/{id}", id)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id", is(1)));
+    }
 
 }

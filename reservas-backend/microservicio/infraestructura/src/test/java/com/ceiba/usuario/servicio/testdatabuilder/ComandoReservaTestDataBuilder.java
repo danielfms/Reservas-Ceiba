@@ -16,7 +16,7 @@ public class ComandoReservaTestDataBuilder {
     private LocalDateTime fechaCreacion;
 
     public ComandoReservaTestDataBuilder() {
-    	id = null;
+    	id = 1L;
         idVuelo = 1L;
         tipoIdentificacion = "CC";
         numeroIdentificacion = "12345678913";

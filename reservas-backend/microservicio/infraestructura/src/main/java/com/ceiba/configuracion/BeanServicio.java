@@ -7,8 +7,10 @@ import com.ceiba.destino.servicio.ServicioActualizarDestino;
 import com.ceiba.destino.servicio.ServicioCrearDestino;
 import com.ceiba.destino.servicio.ServicioEliminarDestino;
 import com.ceiba.reserva.servicio.ServicioActualizarReserva;
+import com.ceiba.reserva.servicio.ServicioConsultarReserva;
 import com.ceiba.reserva.servicio.ServicioCrearReserva;
 import com.ceiba.reserva.servicio.ServicioEliminarReserva;
+import com.ceiba.usuario.puerto.dao.DaoReserva;
 import com.ceiba.usuario.puerto.dao.DaoVuelo;
 import com.ceiba.usuario.puerto.repositorio.RepositorioAvion;
 import com.ceiba.usuario.puerto.repositorio.RepositorioDestino;
@@ -67,6 +69,11 @@ public class BeanServicio {
     @Bean
     public ServicioActualizarReserva servicioActualizarReserva(RepositorioReserva repositorioReserva) {
     	return new ServicioActualizarReserva(repositorioReserva);
+    }
+    
+    @Bean
+    public ServicioConsultarReserva servicioConsultarReserva(DaoReserva daoReserva) {
+    	return new ServicioConsultarReserva(daoReserva);
     }
     
     @Bean
