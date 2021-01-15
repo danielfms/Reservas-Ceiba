@@ -56,9 +56,8 @@ public class ConsultaControladorReservaTest {
         mocMvc.perform(get("/reservas/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.tipoIdentificacion", is("CC")))
-                .andExpect(jsonPath("$.numeroIdentificacion", is("12378444554")));
-        
+                .andExpect(jsonPath("numeroIdentificacion").isNotEmpty());
+
     }
 
 }
