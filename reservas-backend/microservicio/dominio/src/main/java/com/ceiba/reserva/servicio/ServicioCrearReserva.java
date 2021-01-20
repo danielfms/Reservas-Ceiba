@@ -28,8 +28,8 @@ public class ServicioCrearReserva{
     public Long ejecutar(Reserva reserva) {
     	DtoVuelo vuelo = daoVuelo.consultar(reserva.getIdVuelo());
     	validarExistenciaReservaActiva(reserva);
-    	validarValorFinDeSemana(reserva, vuelo);
-    	validarDuracionVuelo(reserva, vuelo);
+    	calcularValorFinDeSemana(reserva, vuelo);
+    	calcularValorDuracionVuelo(reserva, vuelo);
         return this.repositorioReserva.crear(reserva);
     }
     
@@ -40,13 +40,13 @@ public class ServicioCrearReserva{
         }
     }
     
-    private void validarValorFinDeSemana(Reserva reserva, DtoVuelo vuelo) {
+    private void calcularValorFinDeSemana(Reserva reserva, DtoVuelo vuelo) {
         if(esFinDeSemana(vuelo.getFecha())){
         	reserva.calcularValorPorFinDeSemana();
         }
     }
     
-    private void validarDuracionVuelo(Reserva reserva, DtoVuelo vuelo) {
+    private void calcularValorDuracionVuelo(Reserva reserva, DtoVuelo vuelo) {
         if(vuelo.getDuracion().compareTo(60) > 0 && !esFinDeSemana(vuelo.getFecha())){
         	reserva.calcularValorPorDuracionNoFinDeSemana();
         }
