@@ -18,4 +18,7 @@ public class ComandoVuelo{
     private Long idAvion;
     private LocalDateTime fecha;
     private Integer duracion;
+    private String ciudadOrigen;
+    private String ciudadDestino;
+    private String matriculaAvion;
 }

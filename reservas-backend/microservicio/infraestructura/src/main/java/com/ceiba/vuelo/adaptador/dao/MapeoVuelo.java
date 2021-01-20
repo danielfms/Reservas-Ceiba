@@ -19,8 +19,12 @@ public class MapeoVuelo implements RowMapper<DtoVuelo>, MapperResult {
         Long idAvion = resultSet.getLong("id_avion");
         LocalDateTime fecha = extraerLocalDateTime(resultSet, "fecha");
         Integer duracion = resultSet.getInt("duracion");
-
-        return new DtoVuelo(id, idDestino, idAvion, fecha, duracion);
+        DtoVuelo vuelo = new DtoVuelo(id, idDestino, idAvion, fecha, duracion);
+        
+        vuelo.setCiudadOrigen(resultSet.getString("ciudad_origen"));
+        vuelo.setCiudadDestino(resultSet.getString("ciudad_destino"));
+        vuelo.setMatriculaAvion(resultSet.getString("matricula"));
+        return vuelo;
     }
     
 }

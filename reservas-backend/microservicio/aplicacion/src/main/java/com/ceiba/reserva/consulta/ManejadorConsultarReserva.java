@@ -1,4 +1,4 @@
-package com.ceiba.consulta;
+package com.ceiba.reserva.consulta;
 
 import org.springframework.stereotype.Component;
 

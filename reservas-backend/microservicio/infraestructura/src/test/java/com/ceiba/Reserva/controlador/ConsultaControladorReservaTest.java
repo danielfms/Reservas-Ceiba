@@ -3,18 +3,13 @@ package com.ceiba.Reserva.controlador;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.flywaydb.core.Flyway;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.comando.ComandoReserva;
 import com.ceiba.reserva.controlador.ConsultaControladorReserva;
-import com.ceiba.usuario.servicio.testdatabuilder.ComandoReservaTestDataBuilder;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.junit.After;
 import org.junit.Before;
@@ -61,18 +56,7 @@ public class ConsultaControladorReservaTest {
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].token", is("TOKEN")));
     }
-    
-//    @Test
-//    public void consultar() throws Exception {
-//        // arrange
-//    	Long id = 1L;
-//
-//        // act - assert
-//        mocMvc.perform(get("/reservas/{id}", id)
-//                .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk());
-//    }
-    
+        
     @Test
     public void consultar() throws Exception {
         // arrange

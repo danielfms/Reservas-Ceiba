@@ -20,6 +20,7 @@ import com.ceiba.vuelo.servicio.ServicioActualizarVuelo;
 import com.ceiba.vuelo.servicio.ServicioCrearVuelo;
 import com.ceiba.vuelo.servicio.ServicioEliminarVuelo;
 
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -90,5 +91,12 @@ public class BeanServicio {
     public ServicioActualizarVuelo servicioActualizarVuelo(RepositorioVuelo repositorioVuelo) {
     	return new ServicioActualizarVuelo(repositorioVuelo);
     }
-
+    
+    @Bean
+    public FilterRegistrationBean<CorsFilter> filterRegistrationBean(){
+        FilterRegistrationBean<CorsFilter> registrationBean = new FilterRegistrationBean<>();
+        registrationBean.setFilter(new CorsFilter());
+        registrationBean.addUrlPatterns("/*");
+        return registrationBean;    
+    }
 }
