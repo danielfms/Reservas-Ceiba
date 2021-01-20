@@ -16,8 +16,7 @@ public class FabricaReserva {
         		comandoReserva.getPasajeros(),
         		comandoReserva.getValorTotal(),
         		comandoReserva.getActiva(), 
-        		comandoReserva.getToken(),
-        		comandoReserva.getFechaCreacion()
+        		comandoReserva.getToken()
         );
     }
 

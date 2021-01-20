@@ -13,7 +13,6 @@ public class ComandoReservaTestDataBuilder {
     private Integer valorTotal;
     private Boolean activa;
     private String token;
-    private LocalDateTime fechaCreacion;
 
     public ComandoReservaTestDataBuilder() {
     	id = 1L;
@@ -24,7 +23,6 @@ public class ComandoReservaTestDataBuilder {
         valorTotal = 10000;
         activa = true;
         token = "TOKEN";
-        fechaCreacion = LocalDateTime.now();
     }
 
     public ComandoReservaTestDataBuilder conToken(String token) {
@@ -43,6 +41,6 @@ public class ComandoReservaTestDataBuilder {
     }
 
     public ComandoReserva build() {
-        return new ComandoReserva(id, idVuelo, tipoIdentificacion, numeroIdentificacion, pasajeros, valorTotal, activa, token, fechaCreacion);
+        return new ComandoReserva(id, idVuelo, tipoIdentificacion, numeroIdentificacion, pasajeros, valorTotal, activa, token);
     }
 }

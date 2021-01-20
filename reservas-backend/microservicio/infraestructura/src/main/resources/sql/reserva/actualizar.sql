@@ -5,6 +5,5 @@ set id_vuelo = :id_vuelo,
 	pasajeros = :pasajeros,
 	valor_total = :valor_total,
 	activa = :activa,
-	token = :token,
-	fecha_creacion = :fecha_creacion
+	token = :token
 where id = :id

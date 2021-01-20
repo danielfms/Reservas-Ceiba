@@ -35,9 +35,8 @@ public class Reserva {
     private Integer valorTotal;
     private Boolean activa;
     private String token;
-    private LocalDateTime fechaCreacion;
 	public Reserva(Long id, Long idVuelo, String tipoIdentificacion, String numeroIdentificacion, Integer pasajeros,
-			Integer valorTotal, Boolean activa, String token, LocalDateTime fechaCreacion) {
+			Integer valorTotal, Boolean activa, String token) {
 		
 		validarObligatorio(tipoIdentificacion, SE_DEBE_INGRESAR_EL_TIPO_IDENTIFICACION);
 		validarObligatorio(numeroIdentificacion, SE_DEBE_INGRESAR_EL_NUMERO_IDENTIFICACION);
@@ -53,7 +52,6 @@ public class Reserva {
 		this.valorTotal = valorTotal;
 		this.activa = activa;
 		this.token = token;
-		this.fechaCreacion = fechaCreacion;
 	}
     
     public void calcularValorPorFinDeSemana(){

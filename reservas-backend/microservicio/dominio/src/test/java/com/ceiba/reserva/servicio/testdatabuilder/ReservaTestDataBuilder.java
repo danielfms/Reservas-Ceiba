@@ -14,7 +14,6 @@ public class ReservaTestDataBuilder {
     private Integer valorTotal;
     private Boolean activa;
     private String token;
-    private LocalDateTime fechaCreacion;
 
     public ReservaTestDataBuilder() {
     	id = 1L;
@@ -25,7 +24,6 @@ public class ReservaTestDataBuilder {
         valorTotal = 10000;
         activa = true;
         token = "TOKEN";
-        fechaCreacion = LocalDateTime.now();
     }
 
     public ReservaTestDataBuilder conTipoIdentificacion(String tipoIdentificacion) {
@@ -52,7 +50,6 @@ public class ReservaTestDataBuilder {
         		pasajeros,
         		valorTotal,
         		activa,
-        		token,
-        		fechaCreacion);
+        		token);
     }
 }

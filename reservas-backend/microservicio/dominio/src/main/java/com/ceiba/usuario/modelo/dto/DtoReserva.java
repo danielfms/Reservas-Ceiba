@@ -17,6 +17,5 @@ public class DtoReserva {
     private Integer valorTotal;
     private Boolean activo;
     private String token;
-    private LocalDateTime fechaCreacion;
 
 }

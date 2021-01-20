@@ -14,6 +14,7 @@ public class DtoVuelo {
     private String ciudadOrigen;
     private String ciudadDestino;
     private String matriculaAvion;
+    private Integer valorBase;
     
     public DtoVuelo(Long id, Long idDestino, Long idAvion, LocalDateTime fecha, Integer duracion){
     	this.id = id;
@@ -34,4 +35,9 @@ public class DtoVuelo {
 	public void setMatriculaAvion(String matriculaAvion) {
 		this.matriculaAvion = matriculaAvion;
 	}
+
+	public void setValorBase(Integer valorBase) {
+		this.valorBase = valorBase;
+	}
+	
 }

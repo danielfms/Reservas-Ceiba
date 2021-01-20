@@ -33,7 +33,6 @@ create table reserva (
  valor_total int not null,
  activa boolean not null default true,
  token varchar(100) not null,
- fecha_creacion datetime not null default now(),
  primary key (id),
  foreign key (id_vuelo) references vuelo(id)
 );

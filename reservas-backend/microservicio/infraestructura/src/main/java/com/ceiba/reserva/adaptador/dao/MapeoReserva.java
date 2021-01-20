@@ -21,8 +21,7 @@ public class MapeoReserva implements RowMapper<DtoReserva>, MapperResult {
         Integer valorTotal = resultSet.getInt("valor_total");
         Boolean activo = resultSet.getBoolean("activa");
         String token = resultSet.getString("token");
-        LocalDateTime fechaCreacion = extraerLocalDateTime(resultSet, "fecha_creacion");
 
-        return new DtoReserva(id, idVuelo, tipoIdentificacion, numeroIdentificacion, pasajeros, valorTotal, activo, token, fechaCreacion);
+        return new DtoReserva(id, idVuelo, tipoIdentificacion, numeroIdentificacion, pasajeros, valorTotal, activo, token);
     }
 }

@@ -24,6 +24,7 @@ public class MapeoVuelo implements RowMapper<DtoVuelo>, MapperResult {
         vuelo.setCiudadOrigen(resultSet.getString("ciudad_origen"));
         vuelo.setCiudadDestino(resultSet.getString("ciudad_destino"));
         vuelo.setMatriculaAvion(resultSet.getString("matricula"));
+        vuelo.setValorBase(resultSet.getInt("valor_base"));
         return vuelo;
     }
     

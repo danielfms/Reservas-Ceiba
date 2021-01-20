@@ -9,8 +9,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class ComandoReserva{
 
     private Long id;
@@ -21,6 +21,5 @@ public class ComandoReserva{
     private Integer valorTotal;
     private Boolean activa;
     private String token;
-    private LocalDateTime fechaCreacion;
 
 }

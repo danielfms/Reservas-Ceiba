@@ -43,4 +43,10 @@ public class ConsultaControladorVuelo {
         return this.manejadorListarVuelos.ejecutar(ciudadOrigen, ciudadDestino, fecha);
     }
     
+    @GetMapping("/{id}")
+    @ApiOperation("Listar Vuelos con filtros")
+    public DtoVuelo listarConFiltros(@PathVariable Long id) {
+        return this.manejadorListarVuelos.ejecutar(id);
+    }
+    
 }
