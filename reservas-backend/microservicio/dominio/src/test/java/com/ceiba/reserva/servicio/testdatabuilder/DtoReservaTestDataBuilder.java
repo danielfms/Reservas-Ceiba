@@ -1,10 +1,9 @@
 package com.ceiba.reserva.servicio.testdatabuilder;
 
+import com.ceiba.usuario.modelo.dto.DtoReserva;
 import com.ceiba.usuario.modelo.entidad.Reserva;
 
-import java.time.LocalDateTime;
-
-public class ReservaTestDataBuilder {
+public class DtoReservaTestDataBuilder {
 
 	private Long id;
     private Long idVuelo;
@@ -15,7 +14,7 @@ public class ReservaTestDataBuilder {
     private Boolean activa;
     private String token;
 
-    public ReservaTestDataBuilder() {
+    public DtoReservaTestDataBuilder() {
     	id = 1L;
         idVuelo = 1L;
         tipoIdentificacion = "CC";
@@ -26,23 +25,23 @@ public class ReservaTestDataBuilder {
         token = "TOKEN";
     }
 
-    public ReservaTestDataBuilder conTipoIdentificacion(String tipoIdentificacion) {
+    public DtoReservaTestDataBuilder conTipoIdentificacion(String tipoIdentificacion) {
         this.tipoIdentificacion = tipoIdentificacion;
         return this;
     }
 
-    public ReservaTestDataBuilder conNumeroIdentificacion(String numeroIdentificacion) {
+    public DtoReservaTestDataBuilder conNumeroIdentificacion(String numeroIdentificacion) {
         this.numeroIdentificacion = numeroIdentificacion;
         return this;
     }
     
-    public ReservaTestDataBuilder conValorTotal(Integer valorTotal) {
+    public DtoReservaTestDataBuilder conValorTotal(Integer valorTotal) {
         this.valorTotal = valorTotal;
         return this;
     }
 
-    public Reserva build() {
-        return new Reserva(
+    public DtoReserva build() {
+        return new DtoReserva(
         		id,
         		idVuelo,
         		tipoIdentificacion,
