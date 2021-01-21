@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/reservas")
 @Api(tags = { "Controlador comando usuario"})
+@CrossOrigin(origins = "http://localhost:4200")
 public class ComandoControladorReserva {
 
     private final ManejadorCrearReserva manejadorCrearReserva;

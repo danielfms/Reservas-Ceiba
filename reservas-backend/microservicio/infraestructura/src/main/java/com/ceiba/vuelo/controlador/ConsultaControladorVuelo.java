@@ -21,6 +21,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/vuelos")
 @Api(tags={"Controlador consulta vuelo"})
+@CrossOrigin(origins = "http://localhost:4200")
 public class ConsultaControladorVuelo {
 
     private final ManejadorListarVuelo manejadorListarVuelos;

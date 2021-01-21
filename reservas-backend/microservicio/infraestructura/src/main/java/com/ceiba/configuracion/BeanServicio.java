@@ -92,11 +92,4 @@ public class BeanServicio {
     	return new ServicioActualizarVuelo(repositorioVuelo);
     }
     
-    @Bean
-    public FilterRegistrationBean<CorsFilter> filterRegistrationBean(){
-        FilterRegistrationBean<CorsFilter> registrationBean = new FilterRegistrationBean<>();
-        registrationBean.setFilter(new CorsFilter());
-        registrationBean.addUrlPatterns("/*");
-        return registrationBean;    
-    }
 }
