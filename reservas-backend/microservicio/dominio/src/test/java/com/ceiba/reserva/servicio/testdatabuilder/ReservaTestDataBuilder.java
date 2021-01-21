@@ -2,8 +2,6 @@ package com.ceiba.reserva.servicio.testdatabuilder;
 
 import com.ceiba.usuario.modelo.entidad.Reserva;
 
-import java.time.LocalDateTime;
-
 public class ReservaTestDataBuilder {
 
 	private Long id;

@@ -1,13 +1,11 @@
 package com.ceiba.vuelo.consulta;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import com.ceiba.usuario.puerto.dao.DaoVuelo;
 
 import org.springframework.stereotype.Component;
 
-import com.ceiba.usuario.modelo.dto.DtoReserva;
 import com.ceiba.usuario.modelo.dto.DtoVuelo;
 
 @Component

@@ -1,7 +1,5 @@
 package com.ceiba.usuario.servicio.testdatabuilder;
 
-import java.time.LocalDateTime;
-
 import com.ceiba.comando.ComandoReserva;
 public class ComandoReservaTestDataBuilder {
 

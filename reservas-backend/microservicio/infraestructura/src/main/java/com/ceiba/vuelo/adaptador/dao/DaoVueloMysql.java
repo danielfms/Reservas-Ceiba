@@ -1,6 +1,5 @@
 package com.ceiba.vuelo.adaptador.dao;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;

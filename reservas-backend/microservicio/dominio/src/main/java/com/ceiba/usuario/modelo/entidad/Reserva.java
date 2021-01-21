@@ -8,7 +8,6 @@ import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
 import static com.ceiba.dominio.ValidadorArgumento.validarIgual;
 import static com.ceiba.dominio.ValidadorArgumento.validarLongitudMinima;
-import java.time.LocalDateTime;
 
 
 @Getter

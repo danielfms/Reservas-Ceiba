@@ -19,8 +19,6 @@ import com.ceiba.usuario.puerto.repositorio.RepositorioVuelo;
 import com.ceiba.vuelo.servicio.ServicioActualizarVuelo;
 import com.ceiba.vuelo.servicio.ServicioCrearVuelo;
 import com.ceiba.vuelo.servicio.ServicioEliminarVuelo;
-
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
