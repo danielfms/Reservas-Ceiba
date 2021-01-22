@@ -30,6 +30,7 @@ public class ServicioCrearReserva{
     	validarExistenciaReservaActiva(reserva);
     	calcularValorFinDeSemana(reserva, vuelo);
     	calcularValorDuracionVuelo(reserva, vuelo);
+    	reserva.establecerTokenYActivo();
         return this.repositorioReserva.crear(reserva);
     }
     

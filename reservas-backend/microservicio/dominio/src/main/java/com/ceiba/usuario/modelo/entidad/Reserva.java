@@ -6,6 +6,9 @@ import lombok.Setter;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
+
+import java.util.UUID;
+
 import static com.ceiba.dominio.ValidadorArgumento.validarIgual;
 import static com.ceiba.dominio.ValidadorArgumento.validarLongitudMinima;
 
@@ -62,4 +65,8 @@ public class Reserva {
     }
 
 
+    public void establecerTokenYActivo(){
+    	this.token = UUID.randomUUID().toString();
+    	this.activa = true;
+    }
 }

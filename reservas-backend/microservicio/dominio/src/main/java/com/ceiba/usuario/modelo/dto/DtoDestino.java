@@ -9,6 +9,6 @@ public class DtoDestino {
     private Long id;
     private String ciudadOrigen;
     private String ciudadDestino;
-    private Integer valoBase;
+    private Integer valorBase;
 
 }

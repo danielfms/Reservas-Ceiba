@@ -2,6 +2,7 @@ package com.ceiba.destino.controlador;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/destinos")
 @Api(tags={"Controlador consulta usuario"})
+@CrossOrigin(origins = "http://localhost:4200")
 public class ConsultaControladorDestino {
 
     private final ManejadorListarDestino manejadorListarDestinos;
