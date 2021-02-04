@@ -4,7 +4,7 @@ jasypt:
       algorithm: PBEWithMD5AndDES
 
 server:
-   port: 8083
+   port: 8080
    servlet:
       context-path: /reservas
       session:
@@ -14,7 +14,7 @@ spring:
    datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.zaxxer.hikari.HikariDataSource
-      jdbcUrl: jdbc:mysql://localhost:3307/reservas?autoReconnect=true
+      jdbcUrl: jdbc:mysql://10.240.0.4:30200/reservas?autoReconnect=true
       username: root
       password: root
       hikari:

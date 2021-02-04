@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reservas-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: reservas
+  template:
+    metadata:
+      labels:
+        app: reservas
+    spec:
+      containers:
+      - name: reservas
+        image: danielfms/reservas:5.2
+        ports:
+        - containerPort: 8080
+        env:
+          - name: MYSQL_SERVICE
+            value: mysql-service
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name:  reservas-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: reservas
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+    
